@@ -23,3 +23,15 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 export { app }
+
+//use hota hai middlewares ke liye hota hai
+
+//cors toh pta hai allow access krne ke liye
+
+//express.json response dene ke liye json format mai
+
+//static to store images that doesnt change frequently
+
+//cookie-parser to use cookies of user and to set secure cookies
+
+//url encoded bhi use hota hai to detect url 

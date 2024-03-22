@@ -1,5 +1,7 @@
 //require('dotenv').config({path: './env'})
 //above line brings inconsistency
+//package.json mai jaake kuch change kiye experimental implementataion kiya hai
+//ki hume require use nhi krna pade 
 
 
 import dotenv from 'dotenv'
