@@ -30,6 +30,10 @@ prettier nodemon dev dependencies toh -D ke saath hoti hi like
 this
 npm i -D prettier
 dotenv express mongoose cookie-parser cors
+npm i mongoose-aggregate-paginate-v2
+
+bcrypt
+jsonwebtoken
 
 # async fn ek promise bhi return krta hai
 
@@ -46,3 +50,7 @@ res dete waqt checking ko hi middleware
 # node js api error
 
 # statuscode mdn web docs
+
+# diff bcrypt vs bcryptjs
+
+jwt ek bearer token h chaabhi ki tarah hai
