@@ -6,3 +6,22 @@ for backend
 '
 
 # git ignore generators
+
+# production settings thi 
+# professional grade
+
+# ways to connect db v - 7
+
+pehli approach index.js mai daal do
+
+dusri approach dusre folder mai likho code clean hoga 
+
+db se baat krne mai problem aa sakti 
+try catch use karo
+promises use karo ya phir
+
+db se baat krne mai time lagta hai async await use karo ho sakta hai db dusre continent mai ho
+# environment variables
+jab bhi env change kr rahe ho toh manually start krna padega phir nodemon kuch nhi krr paayega
+
+
