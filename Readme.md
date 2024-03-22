@@ -25,3 +25,24 @@ db se baat krne mai time lagta hai async await use karo ho sakta hai db dusre co
 jab bhi env change kr rahe ho toh manually start krna padega phir nodemon kuch nhi krr paayega
 
 
+# packages install
+prettier nodemon dev dependencies toh -D ke saath hoti hi like 
+this
+npm i -D prettier
+dotenv express mongoose cookie-parser cors
+
+# async fn ek promise bhi return krta hai
+
+
+use hota hai middlewares ke liye hota hai
+
+docs about cors
+
+# middlewares
+res dete waqt checking ko hi middleware
+
+# error, req, res, next 
+
+# node js api error
+
+# statuscode mdn web docs
