@@ -63,7 +63,7 @@ userSchema.pre("save", async function (next) {
     //to encrypt password only when it is first created or updated
     //not everytime
 
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     //how many times it should be encrypted means 10 rounds
     next()
 })

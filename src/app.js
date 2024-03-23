@@ -22,6 +22,23 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
+
+//routes import 
+
+import userRouter from "./routes/user.routes.js"
+
+
+
+
+//routes declaration
+app.use("/api/v1/users", userRouter)
+
+
+
+
+
+
+
 export { app }
 
 //use hota hai middlewares ke liye hota hai

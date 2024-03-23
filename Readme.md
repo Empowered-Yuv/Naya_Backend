@@ -10,7 +10,7 @@ for backend
 # production settings thi 
 # professional grade
 
-# ways to connect db v - 7
+# ways to connect db video - 7
 
 pehli approach index.js mai daal do
 
@@ -68,3 +68,18 @@ pehle temporarily apne server mai rakhte hai phir cloudinary function call krte 
 node js file system docs 
 
 # delete -- unlinking r same
+
+# http crash course
+hyper text transfer protocol
+url - locater
+uri - identifier
+urn - name
+
+http headers ke andar kya hota hai
+metadata ------> key value pair
+req headers - from client
+res headers - from server
+rep headers - encoding, compression
+payload headers - data
+
+# controllers from video - 13 part 12
