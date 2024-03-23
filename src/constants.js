@@ -1,3 +1,3 @@
-export const DB_NAME = "ritztube"
+export const DB_NAME = "learning"
 
 //database ka naam 

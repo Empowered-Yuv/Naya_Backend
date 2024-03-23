@@ -10,7 +10,7 @@ const registerUser = asyncHandler( async (req, res) => {
 
     const { username, email, fullname, password } = req.body
 
-    console.log("email:", email);
+    //console.log("email:", email);
 
 
     // validation - not empty
@@ -29,6 +29,8 @@ const registerUser = asyncHandler( async (req, res) => {
         throw new ApiError(400, "Invalid email id")
     }
 
+
+    //console.log(req.files);
     // check if user already exists: check username aur email 
 
     // const existedUsername = User.findOne({
@@ -39,7 +41,7 @@ const registerUser = asyncHandler( async (req, res) => {
     //     throw new ApiError(409, "Username existed Please choose different username")
     // }
 
-    const existedUser = User.findOne({
+    const existedUser = await User.findOne({
         $or: [{ username }, { email }]
     })
 
@@ -52,7 +54,13 @@ const registerUser = asyncHandler( async (req, res) => {
 
     const avatarLocalPath = req.files?.avatar[0]?.path
 
-    const coverImageLocalPath = req.files?.coverImage[0]?.path
+    // agar coverImage nhi bhejte hai toh error aata hai const coverImageLocalPath = req.files?.coverImage[0]?.path
+
+    let coverImageLocalPath;
+
+    if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+        coverImageLocalPath = req.files.coverImage[0].path
+    }
 
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar file is required")
