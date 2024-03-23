@@ -34,6 +34,8 @@ npm i mongoose-aggregate-paginate-v2
 
 bcrypt
 jsonwebtoken
+multer
+cloudinary
 
 # async fn ek promise bhi return krta hai
 
@@ -54,3 +56,15 @@ res dete waqt checking ko hi middleware
 # diff bcrypt vs bcryptjs
 
 jwt ek bearer token h chaabhi ki tarah hai
+
+file upload aur multer dono same hai thode bahut differences hai
+
+hum ismai multer use karenge 
+
+production grade mai two step process hai
+pehle temporarily apne server mai rakhte hai phir cloudinary function call krte hai
+
+
+node js file system docs 
+
+# delete -- unlinking r same
