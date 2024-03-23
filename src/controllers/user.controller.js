@@ -19,13 +19,25 @@ const registerUser = asyncHandler( async (req, res) => {
     // }
 
     if (
-        [fullname, email, username, password].some((field) => field?.trim() === "")
+        [fullname, email, username, password].some((field) => field?.trim() === "") // naaya method to check everyfield
     ) {
         throw new ApiError(400, "All fields are required")
     }
     //email validation
 
+    if (email.includes("@") === false) {
+        throw new ApiError(400, "Invalid email id")
+    }
+
     // check if user already exists: check username aur email 
+
+    // const existedUsername = User.findOne({
+    //     username
+    // })
+
+    // if (existedUsername) {
+    //     throw new ApiError(409, "Username existed Please choose different username")
+    // }
 
     const existedUser = User.findOne({
         $or: [{ username }, { email }]
