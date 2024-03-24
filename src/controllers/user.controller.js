@@ -5,6 +5,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose"
+import { v2 as cloudinary, uploader } from 'cloudinary'
 
 
 
@@ -300,7 +301,7 @@ const changeCurrentPassword = asyncHandler ( async (req, res) => {
     user.password = newPassword
 
     await user.save({
-        validateBefore: false
+        validateBeforeSave: false
     })
 
     return res
@@ -324,7 +325,7 @@ const getCurrentUser = asyncHandler ( async(req, res) => {
 const updateAccountDetails = asyncHandler( async(req, res) => {
     const { fullname, email } = req.body
 
-    if (!fullname || !email) {
+    if (!(fullname || email)) {
         throw new ApiError(400, "All fields are required")
     }
 
@@ -354,11 +355,38 @@ const updateAccountDetails = asyncHandler( async(req, res) => {
 const updateUserAvatar = asyncHandler( async(req, res) => {
     const avatarLocalPath = req.file?.path
 
+
+    // const hi = await User.findById(req.user?._id)
+    // console.log(hi.avatar);
+    // cloudinary.uploader.destroy(hi.avatar, function(error, result) {
+    //     console.log(result);
+    //   });
+
+    // delete nhi ho rahi hai
+    try {
+        const user = await User.findById(req.user?._id);
+        if (user && user.avatar) {
+          // If user exists and has an avatar, proceed with deletion
+          cloudinary.uploader.destroy(user.avatar, function(error, result) {
+            if (error) {
+              console.error("Error deleting image from Cloudinary:", error);
+            } else {
+              console.log("Image deleted successfully from Cloudinary:", result);
+            }
+          });
+        } else {
+          console.log("User not found or avatar not present.");
+        }
+      } catch (error) {
+        console.error("Error finding user:", error);
+      }
+      
+      
+      
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar file is missing")
     }
-
-
+    
     const avatar = await uploadOnCloudinary(avatarLocalPath)
 
 
@@ -469,14 +497,14 @@ const getUserChannelProfile = asyncHandler ( async(req, res) => {
         {
             $addFields: {
                 subscribersCount: {
-                    $size: "$subcribers"
+                    $size: "$subscribers"
                 },
                 channelsSubscribedToCount: {
                     $size: "$subscribedTo"
                 },
                 isSubscribed: {
                     $cond: {
-                        if: {$in: [req.user?._id, "$subcribers.subscriber"]},
+                        if: {$in: [req.user?._id, "$subscribers.subscriber"]},
                         then: true,
                         else: false
                     }
