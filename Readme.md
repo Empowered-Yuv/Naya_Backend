@@ -88,3 +88,12 @@ payload headers - data
 
 at - short time lived
 rt - long time lived
+
+
+# channel find karenge fir uske documents count karenge
+
+har baar jb subscribe hota hai tab naaye document banta 
+
+chaanels ko select karoge toh subscribers milegene
+
+and vice versa
