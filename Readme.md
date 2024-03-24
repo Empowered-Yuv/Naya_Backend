@@ -83,3 +83,8 @@ rep headers - encoding, compression
 payload headers - data
 
 # controllers from video - 13 part 12
+
+# access token(at) aur refresh token(rt) differences
+
+at - short time lived
+rt - long time lived

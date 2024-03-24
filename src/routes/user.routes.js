@@ -1,7 +1,9 @@
 import { Router } from 'express'
-import { registerUser } from '../controllers/user.controller.js'
+import { loginUser, logoutUser, registerUser } from '../controllers/user.controller.js'
 
 import { upload } from '../middlewares/multer.middleware.js'
+
+import { verifyJWT } from '../middlewares/auth.middleware.js'
 
 //{ sample } tb use krte hai jb export default use nhi hota hai
 
@@ -22,6 +24,13 @@ router.route("/register").post(
     ]),
     registerUser)
 
+router.route("/login").post(loginUser)
+
+//secured routes
+
+router.route("/logout").post(verifyJWT, logoutUser)
+
+//router.route("/logout").post(verifyJWT, anothermiddle wares logoutUser)
 
 
 export default router
