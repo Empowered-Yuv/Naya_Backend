@@ -231,12 +231,12 @@ const logoutUser = asyncHandler(async(req, res) => {
 })
 
 
-
+// kb refresh krenge
 const refreshAccessToken = asyncHandler( async (req, res) => {
     try {
         const incomigRefreshToken = req.cookies.refreshToken ||req.body.refreshToken
     
-        if (incomigRefreshToken) {
+        if (!incomigRefreshToken) {
             throw new ApiError(401, "Unauthorized Request")
         }
     
